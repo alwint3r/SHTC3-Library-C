@@ -229,7 +229,6 @@ shtc3_error_t shtc3_is_present(shtc3_t *sensor)
     result = sensor->i2c_write(&sensor->config, (const uint8_t *)data, 2);
     if (result == SHTC3_ERROR)
     {
-        printf("Failed writing command!\r\n");
         return result;
     }
 
@@ -237,12 +236,10 @@ shtc3_error_t shtc3_is_present(shtc3_t *sensor)
     result = sensor->i2c_read(&sensor->config, id_result, 3);
     if (result == SHTC3_ERROR)
     {
-        printf("Failed reading result!\r\n");
         return result;
     }
 
     result = shtc3_crc8_check(id_result, 2, id_result[2]);
-    printf("CRC check result: %d\r\n", (int)result);
 
     return result;
 }
