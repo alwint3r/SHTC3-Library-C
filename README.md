@@ -120,7 +120,15 @@ shtc3_error_t err = shtc3_measure(sensor, SHTC3_MEASUREMENT_POLL, SHTC3_MEASUREM
 // measurement.humidity in %
 ```
 
+### Deinitialization
+
+You may not need to do this as the sensor might live as long as the processor is running. Anyway, here's how it's done:
+
+```c
+shtc3_deinit(sensor);
+```
+
 
 ### Credits
 
-I wrote most of the code myself, except the crc8 calculation function which is taken directly from [this official example project for STM32](https://github.com/Sensirion/shtc3-stm-sample-projec) written by Sensirion.
+I wrote most of the code myself, except the crc8 calculation function which is taken directly from [this official example project for STM32](https://github.com/Sensirion/shtc3-stm-sample-project) written by Sensirion.
